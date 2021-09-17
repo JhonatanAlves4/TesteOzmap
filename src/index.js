@@ -4,17 +4,7 @@
 //mais infos
 //https://github.com/ZijianHe/koa-router
 
-require('dotenv').config();
-
-// conexão com o mongo db
-const mongoose = require('mongoose');
-const db = mongoose.connection;
-mongoose.connect("mongodb+srv://jhonatan:mongodb@cluster0.zabwq.mongodb.net/ozMapdb", {useNewUrlParser: true},{useUnifiedTopology: true});
-
-db.on('error', (err) => console.log('Error, DB not connected'));
-db.on('connected', () => console.log('Connected to mongo'));
-db.on('disconnected', () => console.log('Mongo is disconnected'));
-db.on('open', () => console.log('Connection made!'));
+const db = require('./mongodb/mongoConnection.js')
 
 
 const PORT = process.env.PORT || 3000;
@@ -55,6 +45,8 @@ router.get('/name', async ctx => {
     name: 'Lorena'
   });
 })
+
+const User = require('./model/user.js')
 
 //Uma rota de exemplo simples aqui.
 //As rotas devem ficar em arquivos separados, /src/controllers/userController.js por exemplo
