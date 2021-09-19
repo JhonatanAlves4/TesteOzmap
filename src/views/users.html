@@ -7,9 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Página de nomes</h2>
+    <h1><%- title %></h1>
+
     <ul>
-        <li><%- name %></li>
+        <%= users.forEach(function(user) { %>
+            <li>
+                <%= user %>
+            </li>
+        <% }); %> 
     </ul>
+    
 </body>
 </html>
