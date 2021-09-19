@@ -75,7 +75,6 @@ app
   .use(views('views', {map: {html: 'ejs'}}))
   .use(router.routes())
   .use(router.allowedMethods())
-  .use(static('./public'))
   .use(json());
 
 
